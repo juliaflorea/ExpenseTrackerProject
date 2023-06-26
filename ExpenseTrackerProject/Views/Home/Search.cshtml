@@ -1,0 +1,191 @@
+﻿@model ExpenseTrackerProject.ViewModels.SearchResultsViewModel
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        
+    }
+
+    h2 {
+        color: #fff;
+        background-color: #;
+        padding: 10px;
+        margin-top: 0;
+    }
+
+    h3 {
+        color: #fff;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th {
+        background-color: #00a950;
+        color: #fff;
+        text-align: left;
+        padding: 10px;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    tbody tr:hover {
+        background-color: #A0DC6E;
+    }
+
+    ::selection {
+        background-color: #E29853;
+        color: #fff;
+    }
+</style>
+<h2>Search Results :</h2>
+
+@if (Model.Users.Count > 0)
+{
+    <h3>Users</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Expenses.Count > 0)
+{
+    <h3>Expenses</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expense in Model.Expenses)
+            {
+                <tr>
+                    <td>@expense.Description</td>
+                    <td>@expense.Amount</td>
+                    <td>@expense.CreatedAt</td>
+                    <td>@expense.Category.Name</td>
+                    <td>@expense.PaymentMethod.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Incomes.Count > 0)
+{
+    <h3>Incomes</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var income in Model.Incomes)
+            {
+                <tr>
+                    <td>@income.Description</td>
+                    <td>@income.Amount</td>
+                    <td>@income.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Budgets.Count > 0)
+{
+    <h3>Budgets</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var budget in Model.Budgets)
+            {
+                <tr>
+                    <td>@budget.Category.Name</td>
+                    <td>@budget.Amount</td>
+                    <td>@budget.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.PaymentMethods.Count > 0)
+{
+    <h3>Payment Methods</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var paymentMethod in Model.PaymentMethods)
+            {
+                <tr>
+                    <td>@paymentMethod.Name</td>
+                    <td>@paymentMethod.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.Categories.Count > 0)
+    {
+        <h3>Categories</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>@category.CreatedAt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }

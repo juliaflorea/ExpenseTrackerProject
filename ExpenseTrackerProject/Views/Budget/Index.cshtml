@@ -1,0 +1,35 @@
+﻿
+
+@model IEnumerable<ExpenseTrackerProject.Models.Budget>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Budgets</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Budget</a>
+</p>
+
+<div class="card-container d-flex flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="card m-2" style="width: 18rem; background-color: #f2f2f2;">
+            <div class="card-header">
+                <h3>@Html.DisplayFor(modelItem => item.Category.Name)</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">User: @Html.DisplayFor(modelItem => item.User.Name)</p>
+                <p class="card-text">Amount: @Html.DisplayFor(modelItem => item.Amount)</p>
+                <p class="card-text">Date: @Html.DisplayFor(modelItem => item.CreatedAt)</p>
+                <div class="d-flex justify-content-end">
+                    <a asp-action="Edit" asp-route-id="@item.BudgetId" class="btn btn-primary mr-2">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.BudgetId" class="btn btn-secondary mr-2">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.BudgetId" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

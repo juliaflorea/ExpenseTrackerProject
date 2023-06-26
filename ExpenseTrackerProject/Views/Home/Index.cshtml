@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    
+    <div class="jumbotron">
+        <h1>Expense Tracker</h1>
+        <p style="color: black;" class="lead">Track your expenses and income easily with our app.</p>
+        <p><a class="btn btn-lg btn-success" href="@Url.Action("Create", "Expense")" role="button">Add Expense</a></p>
+        <p><a class="btn btn-lg btn-warning" href="@Url.Action("Create", "Income")" role="button">Add Income</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>User</h2>
+            <p>Manage your user account information.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "User")" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Budget</h2>
+            <p>Set and manage your budget.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Budget")" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Payment Method</h2>
+            <p>Add and manage your payment methods.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "PaymentMethod")" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Category</h2>
+            <p>Add and manage expense and income categories.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Category")" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Expense</h2>
+            <p>Add and manage your expenses.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Expense")" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Income</h2>
+            <p>Add and manage your income.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Income")" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+ 
+
+    
+
+
+</body>
+
